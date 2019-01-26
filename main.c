@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
     //     for(j=0;j<8;j++)
     //         mainBoard[i][j]=argv[i*8+j+1];
     // }
-    // player=argv[i+1];
-    player='2';
+    player=argv[i+1];
+    // player='2';
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             secondBoard[i][j]=0;
