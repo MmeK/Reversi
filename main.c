@@ -1,29 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
-void CheckBoard(char board[8][8],char player,int secondBoard[8][8]);
+void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]);
 int CheckTile(char board[8][8],char player, int direction, int x, int y,int secondboard[8][8],int value);
 int main(int argc, char *argv[])
 {
     char player;
     int i,j;
-    char mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
-    int secondBoard[8][8];
+    char  mainBoard;
+    // mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
+    int secondBoard[8][8]={{0}};
    const int thirdBoard[8][8];
-    // for(i=0;i<8;i++){
-    //     for(j=0;j<8;j++)
-    //         mainBoard[i][j]=argv[i*8+j+1];
-    // }
-    player=argv[i+1];
-    // player='2';
-    player++;
-    player--;
-    player++;
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++)
+            mainBoard[i][j]=argv[i+1][j];
+    }
+    player=argv[i+1][0];
+    
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             secondBoard[i][j]=0;
         }
     }
-    CheckBoard(mainBoard,player,secondBoard);
+    CheckBoard(mainBoard,player,secondBoard, thirdBoard);
     for( i=0;i<8;i++){
         for(j=0;j<8;j++){
             printf("%2c",mainBoard[i][j]);
@@ -41,7 +39,7 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-void CheckBoard(char board[8][8],char player,int secondBoard[8][8]){
+void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]){
     int i,j;
     int direction;       // 1,2,3,4,5,6,7,8 : r,ru,u,lu,l,ld,d,rd
     for(i=0;i<8;i++){
@@ -49,7 +47,7 @@ void CheckBoard(char board[8][8],char player,int secondBoard[8][8]){
             if(board[i][j]==player){
                 for(direction=1;direction<10;direction++){
                     
-                    CheckTile(board,player,direction,i,j,secondBoard,0);
+                    CheckTile(board,player,direction,i,j,secondBoard,thirdBoard[i][j]);
                 }
 
             }
