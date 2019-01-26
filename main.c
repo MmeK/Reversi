@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
     // }
     player=argv[i+1];
     // player='2';
+    player++;
+    player--;
+    player++;
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             secondBoard[i][j]=0;
