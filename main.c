@@ -149,7 +149,7 @@ int CheckTile(char board[8][8], char player, int direction, int x, int y, int se
 
 void choosemax(int board1[8][8], int board2[8][8])
 {
-    int x, j, y, i, max;
+    int x=0, j, y=0, i, max;
     int board3[8][8];
 
     for (i = 0; i < 8; i++)
@@ -171,16 +171,17 @@ void choosemax(int board1[8][8], int board2[8][8])
         }
     }
 
-    max = board3[0][0];
+    max = -1000;
     for (i = 0; i < 8; i++)
     {
         for (j = 0; j < 8; j++)
         {
-            if (board3[i][j] > max)
+            if (board3[i][j]!=0&&board3[i][j] > max)
             {
+
                 max = board3[i][j];
-                x = i;
-                y = j;
+                x = j;
+                y = i;
             }
         }
     }
