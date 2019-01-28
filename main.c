@@ -161,10 +161,10 @@ void choosemax(int board1[8][8],int board2[8][8])
             if(board3[i][j] > max)
             {
                 max=board3[i][j];
-                x=i;
-                y=j;
+                x=j;
+                y=i;
             }
         }
     }
-    printf("\n%d,%d",x,y);
+    printf("\n%d %d",x,y);
 }
