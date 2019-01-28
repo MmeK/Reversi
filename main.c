@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
         fprintf(cfptr,"\n");
     }
     choosemax(secondBoard, thirdBoard);
+    fclose(cfptr);
     return 0;
 }
 void CheckBoard(char board[8][8], char player, int secondBoard[8][8], int thirdBoard[8][8])
