@@ -24,22 +24,22 @@ int main(int argc, char *argv[])
         }
     }
     CheckBoard(mainBoard,player,secondBoard, thirdBoard);
-    for( i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            printf("%2c",mainBoard[i][j]);
+    // for( i=0;i<8;i++){
+    //     for(j=0;j<8;j++){
+    //         printf("%2c",mainBoard[i][j]);
  
-        }
-        printf("\n");
-    }
-    printf("\n");
-    for( i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            printf("%d ",secondBoard[i][j]);
+    //     }
+    //     printf("\n");
+    // }
+    // printf("\n");
+    // for( i=0;i<8;i++){
+    //     for(j=0;j<8;j++){
+    //         printf("%d ",secondBoard[i][j]);
  
-        }
-        printf("\n");
-    }
-    //choosemax(secondBoard,thirdBoard);
+    //     }
+    //     printf("\n");
+    // }
+    choosemax(secondBoard,thirdBoard);
     return 0;
 }
 void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]){
