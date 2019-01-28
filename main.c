@@ -1,43 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
+void choosemax(int board1[8][8],int board2[8][8]);
 void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]);
 int CheckTile(char board[8][8],char player, int direction, int x, int y,int secondboard[8][8],int value);
 int main(int argc, char *argv[])
 {
     char player;
     int i,j;
-    char  mainBoard;
-     mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
-    int secondBoard[8][8]={{0}};
+    
+    char mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
+    int secondBoard[8][8];
    const int thirdBoard[8][8];
+    // char  mainBoard;
     // for(i=0;i<8;i++){
     //     for(j=0;j<8;j++)
     //         mainBoard[i][j]=argv[i+1][j];
     // }
-    player=argv[i+1][0];
-    
+  //  player=argv[i+1][0];
+    player='2';
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             secondBoard[i][j]=0;
         }
     }
     CheckBoard(mainBoard,player,secondBoard, thirdBoard);
+    for( i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%2c",mainBoard[i][j]);
+ 
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for( i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%d ",secondBoard[i][j]);
+ 
+        }
+        printf("\n");
+    }
     choosemax(secondBoard,thirdBoard);
-    // for( i=0;i<8;i++){
-    //     for(j=0;j<8;j++){
-    //         printf("%2c",mainBoard[i][j]);
- 
-    //     }
-    //     printf("\n");
-    // }
-    // printf("\n");
-    // for( i=0;i<8;i++){
-    //     for(j=0;j<8;j++){
-    //         printf("%d ",secondBoard[i][j]);
- 
-    //     }
-    //     printf("\n");
-    // }
     return 0;
 }
 void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]){
@@ -102,9 +104,9 @@ int CheckTile(char board[8][8],char player, int direction, int x, int y, int sec
     #pragma endregion
     if(player=='1'){
         if(board[x][y]=='2'){
-          printf("%d", value);
+        //   printf("%d", value);
             value++;
-            printf("x=%d , y=%d\n",x,y);
+            // printf("x=%d , y=%d\n",x,y);
             if(x<0||x>7||y<0||y>7)
                 return 0;
             CheckTile(board,player,direction,x,y,secondboard,value);
@@ -112,10 +114,10 @@ int CheckTile(char board[8][8],char player, int direction, int x, int y, int sec
     }
     if(player=='2'){
         if(board[x][y]=='1'){
-            printf("%d", value);
+            // printf("%d", value);
             value++;
             
-            printf("x=%d , y=%d\n",x,y);
+            // printf("x=%d , y=%d\n",x,y);
             if(x<1||x>6||y<1||y>6)
                 return 0;
             CheckTile(board,player,direction,x,y,secondboard,value);
@@ -127,7 +129,7 @@ int CheckTile(char board[8][8],char player, int direction, int x, int y, int sec
 }
 
 
-void choosemax(int board1[][8],int board2[][8])
+void choosemax(int board1[8][8],int board2[8][8])
 {
     int x,j,y,i,max;
     int board3[8][8];
@@ -158,11 +160,11 @@ void choosemax(int board1[][8],int board2[][8])
         {
             if(board3[i][j] > max)
             {
-                max=board3[i][j]
+                max=board3[i][j];
                 x=i;
                 y=j;
             }
         }
     }
-    printf("%d,%d",x,y);
+    printf("\n%d,%d",x,y);
 }
