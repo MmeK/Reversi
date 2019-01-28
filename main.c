@@ -185,5 +185,5 @@ void choosemax(int board1[8][8], int board2[8][8])
             }
         }
     }
-    fprintf(cfptr,"\n%d %d\n", x, y);
+    printf(cfptr,"\n%d %d\n", x, y);
 }
