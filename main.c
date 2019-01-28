@@ -19,10 +19,10 @@ int main(int argc, char *argv[])
         for (j = 0; j < 8; j++)
             mainBoard[i][j] = argv[i + 1][j];
     }
-    player = argv[i + 1][0];
+   // player = argv[i + 1][0];
 
     
-    // player='2';
+     player='2';
     for (i = 0; i < 8; i++)
     {
         for (j = 0; j < 8; j++)
