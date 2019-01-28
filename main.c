@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
             fprintf(cfptr,"%2c",mainBoard[i][j]);
 
         }
-        fprintf("\n");
+        fprintf(cfptr,"\n");
     }
     printf(cfptr,"\n");
     for( i=0;i<8;i++){
