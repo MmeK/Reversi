@@ -7,13 +7,13 @@ int main(int argc, char *argv[])
     char player;
     int i,j;
     char  mainBoard;
-    // mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
+     mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
     int secondBoard[8][8]={{0}};
    const int thirdBoard[8][8];
-    for(i=0;i<8;i++){
-        for(j=0;j<8;j++)
-            mainBoard[i][j]=argv[i+1][j];
-    }
+    // for(i=0;i<8;i++){
+    //     for(j=0;j<8;j++)
+    //         mainBoard[i][j]=argv[i+1][j];
+    // }
     player=argv[i+1][0];
     
     for(i=0;i<8;i++){
@@ -22,21 +22,22 @@ int main(int argc, char *argv[])
         }
     }
     CheckBoard(mainBoard,player,secondBoard, thirdBoard);
-    for( i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            printf("%2c",mainBoard[i][j]);
+    choosemax(secondBoard,thirdBoard);
+    // for( i=0;i<8;i++){
+    //     for(j=0;j<8;j++){
+    //         printf("%2c",mainBoard[i][j]);
  
-        }
-        printf("\n");
-    }
-    printf("\n");
-    for( i=0;i<8;i++){
-        for(j=0;j<8;j++){
-            printf("%d ",secondBoard[i][j]);
+    //     }
+    //     printf("\n");
+    // }
+    // printf("\n");
+    // for( i=0;i<8;i++){
+    //     for(j=0;j<8;j++){
+    //         printf("%d ",secondBoard[i][j]);
  
-        }
-        printf("\n");
-    }
+    //     }
+    //     printf("\n");
+    // }
     return 0;
 }
 void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]){
@@ -123,4 +124,45 @@ int CheckTile(char board[8][8],char player, int direction, int x, int y, int sec
         if(value>0)
         secondboard[x][y]=value;
     return 0;
+}
+
+
+void choosemax(int board1[][8],int board2[][8])
+{
+    int x,j,y,i,max;
+    int board3[8][8];
+
+    for(i=0;i<8;i++)
+    {
+        for(j=0;j<8;j++)
+        {
+            board3[i][j]=board1[i][j]+board2[i][j];
+        }
+    }
+
+    for(i=0;i<8;i++)
+    {
+        for(j=0;j<8;j++)
+        {
+            if(board1[i][j]==0)
+            {
+                board3[i][j]=0;
+            }
+        }
+    }
+
+    max=board3[0][0];
+    for(i=0;i<8;i++)
+    {
+        for(j=0;j<8;j++)
+        {
+            if(board3[i][j] > max)
+            {
+                max=board3[i][j]
+                x=i;
+                y=j;
+            }
+        }
+    }
+    printf("%d,%d",x,y);
 }
