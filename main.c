@@ -36,15 +36,15 @@ int main(int argc, char *argv[])
             fprintf(cfptr,"%2c",mainBoard[i][j]);
 
         }
-        printf("\n");
+        fprintf("\n");
     }
-    printf("\n");
+    printf(cfptr,"\n");
     for( i=0;i<8;i++){
         for(j=0;j<8;j++){
             fprintf(cfptr,"%d ",secondBoard[i][j]);
 
         }
-        printf("\n");
+        fprintf(cfptr,"\n");
     }
     choosemax(secondBoard, thirdBoard);
     return 0;
