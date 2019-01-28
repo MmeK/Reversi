@@ -9,8 +9,8 @@ int main(int argc, char *argv[])
     int i,j;
     
     char mainBoard[8][8]={{"00000000"},{"00000000"},{"00000000"},{"00021110"},{"00112000"},{"00000000"},{"00000000"},{"00000000"}};
-    int secondBoard[8][8];
-   const int thirdBoard[8][8];
+    int secondBoard[8][8]={{0}};
+   const int thirdBoard[8][8]={{0}};
     // char  mainBoard;
     // for(i=0;i<8;i++){
     //     for(j=0;j<8;j++)
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
         }
         printf("\n");
     }
-    choosemax(secondBoard,thirdBoard);
+    //choosemax(secondBoard,thirdBoard);
     return 0;
 }
 void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoard[8][8]){
@@ -48,7 +48,7 @@ void CheckBoard(char board[8][8],char player,int secondBoard[8][8], int thirdBoa
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
             if(board[i][j]==player){
-                for(direction=1;direction<10;direction++){
+                for(direction=1;direction<9;direction++){
                     
                     CheckTile(board,player,direction,i,j,secondBoard,thirdBoard[i][j]);
                 }
@@ -123,7 +123,7 @@ int CheckTile(char board[8][8],char player, int direction, int x, int y, int sec
             CheckTile(board,player,direction,x,y,secondboard,value);
         }
     } if(board[x][y]=='0')
-        if(value>0)
+        if(value!=0)
         secondboard[x][y]=value;
     return 0;
 }
