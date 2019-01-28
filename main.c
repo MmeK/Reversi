@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
    // player = argv[i + 1][0];
 
     
-     player='2';
+     player='1';
     for (i = 0; i < 8; i++)
     {
         for (j = 0; j < 8; j++)
